@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dima Mishirqi</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500&family=Italianno&family=Yesteryear&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>Hey, I'm Dima</h1>
+      <p>A Management Information Systems student at Ben-Gurion University</p>
+    </div>
+  </header>
+
+  <hr>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <p class="section-intro">
+      Hover over a paw, or tap it, to see how I rate each skill.
+    </p>
+    <!-- Interactive skills section using the koala's paws 
+         to display skill descriptions and ratings -->
+    <div class="character koala-skill">
+      <img class="koala_image" src="images/koala.gif" width="600" height="600" alt="A koala that holds skills on paws">
+      <input class="paw-input" type="radio" name="skill" id="skill-adaptability">
+      <label class="choice adaptability paw paw-upper-left" for="skill-adaptability">
+        <span>Adaptability, 5 out of 5</span>
+      </label>
+      <input class="paw-input" type="radio" name="skill" id="skill-problem-solving">
+      <label class="choice problem-solving paw paw-upper-right" for="skill-problem-solving">
+        <span>Problem solving, 5 out of 5</span>
+      </label>
+      <input class="paw-input" type="radio" name="skill" id="skill-coordination">
+      <label class="choice coordination paw paw-lower-left" for="skill-coordination">
+        <span>Project coordination, 4 out of 5</span>
+      </label>
+      <input class="paw-input" type="radio" name="skill" id="skill-management">
+      <label class="choice management paw paw-lower-right" for="skill-management">
+        <span>Management skills, 4 out of 5</span>
+      </label>
+      <!-- Visual skill rating using filled and outlined paw icons -->
+      <p class="skill-card skill-placeholder">Choose a paw to explore my skills.</p>
+      <article class="skill-card result-adaptability">
+        <h3>Adaptability</h3>
+        <p class="skill-rating">
+          <span class="rating-paws" aria-hidden="true">
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+          </span>
+          <span>5/5</span>
+        </p>
+        <p>I adapt quickly to new situations, tools and teams.</p>
+      </article>
+      <article class="skill-card result-problem-solving">
+        <h3>Problem solving</h3>
+        <p class="skill-rating">
+          <span class="rating-paws" aria-hidden="true">
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+          </span>
+          <span>5/5</span>
+        </p>
+        <p>I earned 2nd place at the Hasoub Hackathon for the Dalili app.</p>
+      </article>
+      <article class="skill-card result-coordination">
+        <h3>Project coordination</h3>
+        <p class="skill-rating">
+          <span class="rating-paws" aria-hidden="true">
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span></span>
+          </span>
+          <span>4/5</span>
+        </p>
+        <p>I have experience leading academic and personal projects, with a focus on planning and clear
+          communication.</p>
+      </article>
+      <article class="skill-card result-management">
+        <h3>Management skills</h3>
+        <p class="skill-rating">
+          <span class="rating-paws" aria-hidden="true">
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span class="filled"></span>
+            <span></span>
+          </span>
+          <span>4/5</span>
+        </p>
+        <p>I am building organizational management skills through my studies in Management Information Systems.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Interactive hobbies section where each character
+     represents a different hobby -->
+  <section class="section" id="hobbies">
+    <h2>Three Sides of Me</h2>
+    <p class="section-intro">Hover over a character, or tap it, to meet it.</p>
+    <!-- still and animated character images that switch
+     according to the user's interaction -->
+    <div class="character hobby-grid">
+      <img class="sofa" src="images/couch.webp" width="1200" height="800" alt="">
+      <input class="hobby-control" type="radio" name="hobby" id="reading">
+      <label class="choice hobby-seat seat-reading" for="reading">
+        <img class="hobby-still" src="images/bookworm.png" alt="A still bookworm">
+        <img class="hobby-motion" src="images/bookworm.gif" alt="A bookworm gif">
+        <span class="hobby-label">Bookworm</span>
+      </label>
+      <input class="hobby-control" type="radio" name="hobby" id="photography">
+      <label class="choice hobby-seat seat-photography" for="photography">
+        <img class="hobby-still" src="images/ladybug.png" alt="A still ladybug">
+        <img class="hobby-motion" src="images/ladybug.gif" alt="A ladybug gif">
+        <span class="hobby-label">Shutterbug</span>
+      </label>
+
+      <input class="hobby-control" type="radio" name="hobby" id="baking">
+      <label class="choice hobby-seat seat-baking" for="baking">
+        <img class="hobby-still" src="images/mouse.png" alt="A still mouse">
+        <img class="hobby-motion" src="images/mouse.gif" alt="A mouse gif"> <span class="hobby-label">Ratatouille</span>
+      </label>
+      <p class="hobby-card hobby-placeholder">Choose a character to explore my hobbies.</p>
+      <!-- Hobby descriptions displayed according to the selected or hovered character -->
+      <article class="hobby-card result-reading">
+        <h3>Reading</h3>
+        <p>
+          Reading allows me to explore different perspectives, discover new stories, and learn new things.
+          Each
+          genre offers something different, whether it's knowledge, emotions, or a new way of thinking.<br> My
+          favorite genres are thrillers, nonfiction, and classics.
+        </p>
+      </article>
+      <article class="hobby-card result-photography">
+        <h3>Photography</h3>
+        <p>
+          Photography lets me capture nature, little details, and fleeting moments the
+          way I see them. Every photo holds a piece of my perspective.
+        </p>
+        <img class="photographing-img" src="images/photographing.jpeg" alt="A phto that took by me" width="1465"
+          height="1056">
+      </article>
+      <article class="hobby-card result-baking">
+        <h3>Cooking &amp; Baking</h3>
+        <p>I enjoy cooking and baking for my loved ones. I also find them to be a great way to relieve stress on
+          busy days.</p>
+      </article>
+    </div>
+  </section>
+
+  <hr>
+  <div class="contact-me">
+    <h2>Get In Touch</h2>
+    <a class="email-button" href="https://mailto:dmishirqi@gmail.com">Email me</a>
+  </div>
+
+  <div class="footer">
+    <a class="footer-link" href="https://www.linkedin.com/in/dima-mishirqi-b4425520a" target="_blank">LinkedIn</a>
+    <p class="copyright">© Dima Mishirqi. All Rights Reserved.
+    </p>
+  </div>
+
+</body>
+
+</html>

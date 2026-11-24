@@ -1,0 +1,503 @@
+:root {
+  --cream-dark: #f5ebd9;
+  --brown: #302820;
+  --muted: #6b6257;
+  --green-dark: #3f5c47;
+  --green-light: #dbe6d7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* designing the seprator (hr) */
+hr {
+  border: none;
+  border-top: 2px solid transparent;
+  ;
+  width: 90%;
+  max-width: 48rem;
+  margin: 3rem auto;
+  overflow: visible;
+  text-align: center;
+}
+
+hr::after {
+  content: "🍂🍂🍂🍂";
+  position: relative;
+  top: -1.2rem;
+  padding: 0 1rem;
+  font-size: 1.6rem;
+  background: var(--cream);
+}
+
+
+
+header {
+  color: var(--brown);
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  font-size: 25px;
+  padding: 3rem 1.5rem;
+
+
+}
+
+header h1 {
+  font-family: "Italianno", cursive;
+  font-size: 30px;
+  margin: 0;
+  font-size: 5rem;
+  line-height: 1.5;
+}
+
+header p {
+  max-width: 28rem;
+  margin: 0.25rem auto 0;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 2rem 1rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    line-height: 1.25;
+
+  }
+}
+
+body {
+  margin: 0;
+  text-align: center;
+  background: var(--green-light);
+  color: var(--text);
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  font-weight: normal;
+}
+
+h2 {
+  color: var(--green);
+  margin: 0 0 .65rem;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.section {
+  max-width: 48rem;
+  margin: 1.45rem auto;
+  padding: 0 1.25rem;
+}
+
+.section-intro {
+  margin: 0.55rem 0 1rem;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .section {
+    margin: 2.25rem auto;
+  }
+}
+
+.character {
+  display: grid;
+  grid-template-columns: 100%;
+  margin: auto;
+}
+
+.koala-skill {
+  max-width: 240px;
+}
+
+.koala_image {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+
+}
+
+.paw-upper-left,
+.paw-upper-right {
+  --paw-width: 21%;
+  --paw-height: 21%;
+}
+
+.paw-lower-left,
+.paw-lower-right {
+  --paw-width: 27%;
+  --paw-height: 28%;
+}
+
+/* Put the controls in the same grid cell as the koala. */
+.koala-skill .paw-input,
+.koala-skill .choice {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  justify-self: start;
+}
+
+.koala-skill .paw-input {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Draw a clickable outline over each paw. */
+.paw {
+  width: var(--paw-width);
+  height: 0;
+  padding-top: var(--paw-height);
+  border-radius: 50%;
+  outline: 2px dashed var(--green-dark);
+
+}
+
+/* Positions each interactive control over its corresponding paw */
+.adaptability,
+#skill-adaptability {
+  margin: 40% 0 0 5.5%;
+}
+
+.problem-solving,
+#skill-problem-solving {
+  margin: 40% 0 0 73.5%;
+}
+
+.coordination,
+#skill-coordination {
+  margin: 70.5% 0 0 14.5%;
+}
+
+.management,
+#skill-management {
+  margin: 70.5% 0 0 58%;
+}
+
+/* Keep the labels available to screen readers. */
+.paw span {
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.paw:hover,
+.paw-input:checked+.paw {
+  background: rgba(95, 127, 99, 0.22);
+}
+
+.paw-input:focus-visible+.paw {
+  outline: 3px solid var(--green-dark);
+}
+
+/* Styles skill cards and keeps them hidden
+   until the corresponding paw is activated */
+.skill-card {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0.85rem 0 0;
+  padding: 1rem;
+  background: var(--cream-dark);
+  border: 1px solid #899662;
+  border-radius: 1rem;
+  visibility: hidden;
+  text-align: center;
+
+
+}
+
+.skill-placeholder {
+  visibility: visible;
+}
+
+.skill-card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.skill-card p {
+  margin: 0.4rem 0 0;
+}
+
+.skill-rating {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+
+/* Show the card for the selected paw. */
+@media (hover: hover) {
+  .koala-skill:has(.paw:hover) .skill-card {
+    visibility: hidden;
+  }
+
+  .koala-skill:has(.adaptability:hover) .result-adaptability,
+  .koala-skill:has(.problem-solving:hover) .result-problem-solving,
+  .koala-skill:has(.coordination:hover) .result-coordination,
+  .koala-skill:has(.management:hover) .result-management {
+    visibility: visible;
+  }
+
+  .koala-skill:has(.paw-input:checked) .skill-placeholder {
+    visibility: hidden;
+  }
+
+  .koala-skill:has(input[id="skill-adaptability"]:checked) .result-adaptability,
+  .koala-skill:has(input[id="skill-problem-solving"]:checked) .result-problem-solving,
+  .koala-skill:has(input[id="skill-coordination"]:checked) .result-coordination,
+  .koala-skill:has(input[id="skill-management"]:checked) .result-management {
+    visibility: visible;
+  }
+}
+
+.skill-rating,
+.rating-paws {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.rating-paws>span {
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url("images/paw-outline.svg") center / contain no-repeat;
+}
+
+.rating-paws>.filled {
+  background-image: url("images/paw.svg");
+}
+
+/* Displays the koala and skill cards side by side
+   on larger screens and vertically on smaller screens */
+@media (min-width: 700px) {
+  .koala-skill {
+    max-width: 38rem;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .koala-skill .skill-card {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    align-content: center;
+    margin: 0;
+    text-align: left;
+  }
+
+  .koala-skill .skill-rating {
+    justify-content: flex-start;
+  }
+}
+
+/* Interactive hobbies section layout */
+.hobby-grid {
+  max-width: 480px;
+}
+
+.sofa {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+/* Overlays the interactive characters on the couch image
+   using a shared grid cell */
+.hobby-grid .hobby-control,
+.hobby-grid .hobby-seat {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  justify-self: start;
+}
+
+.hobby-control {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  margin-top: 34%;
+}
+
+.hobby-seat {
+  width: 24%;
+  margin-top: 13.4%;
+  text-align: center;
+}
+
+
+/* Positions each character on the couch using
+   percentage-based margins */
+.seat-reading {
+  margin-left: 13%;
+}
+
+.seat-photography {
+  margin-left: 38%;
+}
+
+.seat-baking {
+  margin-left: 63%;
+}
+
+#reading {
+  margin-left: 25%;
+}
+
+#photography {
+  margin-left: 50%;
+}
+
+#baking {
+  margin-left: 75%;
+}
+
+.hobby-seat img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hobby-label {
+  display: block;
+  padding: 0.5rem 0.1rem;
+  background: var(--cream-dark);
+  border: 1px solid #a87e63;
+  border-radius: 0.55rem;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.hobby-seat:hover .hobby-label,
+.hobby-control:checked+.hobby-seat .hobby-label {
+  background: var(--green-light);
+}
+
+.hobby-control:focus-visible+.hobby-seat .hobby-label {
+  outline: 3px solid var(--green-dark);
+}
+
+/* Styles hobby information cards and hides them until the corresponding character is activated */
+.hobby-card {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0.85rem 0 0;
+  padding: 1rem;
+  background: var(--cream-dark);
+  border: 1px solid #899662;
+  border-radius: 1rem;
+  visibility: hidden;
+}
+
+.hobby-placeholder {
+  visibility: visible;
+}
+
+.hobby-card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.hobby-card p {
+  margin: 0.4rem 0 0;
+}
+
+.photographing-img {
+  display: block;
+  width: 10rem;
+  max-width: 100%;
+  height: auto;
+  margin: 0.75rem auto 0;
+}
+
+.hobby-grid:has(.hobby-control:checked) .hobby-placeholder {
+  visibility: hidden;
+}
+
+/* Show the selected character's card. */
+.hobby-grid:has(input[id="reading"]:checked) .result-reading,
+.hobby-grid:has(input[id="photography"]:checked) .result-photography,
+.hobby-grid:has(input[id="baking"]:checked) .result-baking {
+  visibility: visible;
+}
+
+/* Displays the corresponding hobby card when
+   the user hovers over a character */
+@media (hover: hover) {
+  .hobby-grid:has(.hobby-seat:hover) .hobby-card {
+    visibility: hidden;
+  }
+
+  .hobby-grid:has(.seat-reading:hover) .result-reading,
+  .hobby-grid:has(.seat-photography:hover) .result-photography,
+  .hobby-grid:has(.seat-baking:hover) .result-baking {
+    visibility: visible;
+  }
+}
+
+/* Hides animated character images by default */
+.hobby-seat .hobby-motion {
+  display: none;
+}
+
+.hobby-control:checked+.hobby-seat .hobby-still {
+  display: none;
+}
+
+.hobby-control:checked+.hobby-seat .hobby-motion {
+  display: block;
+}
+
+
+@media (hover: hover) {
+  .hobby-seat:hover .hobby-still {
+    display: none;
+  }
+
+  .hobby-seat:hover .hobby-motion {
+    display: block;
+  }
+}
+
+.email-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: #a44f29;
+  color: var(--cream-dark);
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.email-button:hover {
+  background: #813b20;
+}
+
+.footer {
+  padding: 0 1rem 1.25rem;
+  color: var(--muted);
+}
